@@ -1,0 +1,35 @@
+part 1
+
+assume sum{m -> n} of P(m) = P(n + 5) - 2
+show sum{m -> n + 1} of P(m) = P(n + 6) - 2
+
+separate sum{m -> n + 1} of P(m)
+   sum{m -> n} of P(m) + P(n + 1)
+simplify left side using assumption
+   P(n + 5) - 2 + P(n + 1)
+cancel -2
+   P(n + 5) + P(n + 1) = P(n + 6)
+expand P(n + 6) and P(n + 5) by definition of P
+   P(n + 6) = P(n + 6 - 2) + P(n + 6 - 3) = P(n + 4) + P(n + 3)
+   P(n + 5) = P(n + 5 - 2) + P(n + 5 - 3) = P(n + 3) + P(n + 2)
+   P(n + 3) + P(n + 2) + P(n + 1) = P(n + 4) + P(n + 3)
+expand P(n + 4)
+   P(n + 4) = P(n + 2) + P(n + 1)
+   P(n + 3) + P(n + 2) + P(n + 1) = P(n + 2) + P(n + 1) + P(n + 3)
+both sides are symbolically equivalent. qed
+
+part 2
+
+assume sum{m -> n} of P(2m) = P(2n + 3) - 1
+show sum{m -> n + 1} of P(2m) = P(2(n + 1) + 3) - 1
+
+separate lhs
+   sum{m -> n} of P(2m) + P(2(n + 1)) = P(2(n + 1) + 3) - 1
+subst
+   P(2n + 3) - 1 + P(2(n + 1)) = P(2(n + 1) + 3) - 1
+simplify and cancel -1
+   P(2n + 3) + P(2n + 2) = P(2n + 5)
+expand P(2n + 5) by definition of P
+   P(2n + 3) + P(2n + 2) = P(2n + 5 - 2) + P(2n + 5 - 3)
+   P(2n + 3) + P(2n + 2) = P(2n + 3) + P(2n + 2)
+both sides are symbolically equivalent. qed
