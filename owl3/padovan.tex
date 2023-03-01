@@ -1,9 +1,13 @@
 \documentclass[11pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsfonts}
+\usepackage[fleqn]{amsmath}
 \usepackage{mathtools}
 \usepackage{xcolor}
 \usepackage[left=35mm,top=26mm,right=26mm,bottom=15mm]{geometry}
+
+\usepackage{caption}
+\usepackage{subcaption}
 
 \def \nonneg {\mathbb{Z}_{\leq 0}}
 \def \lf {\newline}
@@ -24,18 +28,11 @@ $P(0)=P(1)=P(2)=1$\lf
 $\forall n \geq 3:P(n)=P(n-2)+P(n-3)$\lf
 
 To make this easier, let's just always assume that $n\in\nonneg$ so I don't have to repeat myself.
-Let's also work out the first few Padovan numbers for ease of simplification later.\lf
+Let's also work out the first few Padovan numbers for ease of simplification later.  \lf
 
-
-\begin{tabular}{||c c||}
-   \hline n & P(n) \\ [0.5ex] \hline
-   \hline 0 & 1 \\
-   \hline 1 & 1 \\
-   \hline 2 & 1 \\
-   \hline 3 & 2 \\
-   \hline 4 & 2 \\
-   \hline 5 & 3 \\
-   \hline 6 & 4 \\
+\begin{tabular}{||c c c c c c c c||}
+   \hline n   &\vline\ \ 0 & 1 & 2 & 3 & 4 & 5 & 6 \\
+   \hline P(n)&\vline\ \ 1 & 1 & 1 & 2 & 2 & 3 & 4 \\
    \hline
   \end{tabular}
 
@@ -45,40 +42,51 @@ Let's also work out the first few Padovan numbers for ease of simplification lat
 
 First, let us prove our three base cases: $n=0,1,2$
 
-\subsubsection*{Base case $n=\subsorange[0]$}
+\begin{table}[h]
+   \begin{subtable}[h]{0.45\textwidth}
+      \subsubsection*{Base case $n=\subsorange[0]$}
+      \begin{alignat*}{2}
+         \sum_{m=0}^{\subsorange[0]}P(m) \\
+         &=P(0) &\phantom{+P(1)} \\
+         &=1 \\
+         \\ \hline \\
+         P(\subsorange[0]+5)-2 \\
+         &=3-2 \\
+         &=1 \\
+         &\phantom{=1}
+      \end{alignat*}
+      Both sides are equivalent. \textbf{QED} $n=\subsorange[0]$
+   \end{subtable}
+   \hfill
+   \begin{subtable}[h]{0.45\textwidth}
+      \subsection*{Base case $n=\subsorange[1]$}
+      \begin{alignat*}{2}
+         \sum_{m=0}^{\subsorange[1]}P(m) \\
+         &=P(0)+P(1) \\
+         &=2 \\
+         \\ \hline \\
+         P(\subsorange[1]+5)-2 \\
+         &=P(6)-2 \\
+         &=4-2 \\
+         &=2
+      \end{alignat*}
+      Both sides are equivalent. \textbf{QED} $n=\subsorange[1]$
+    \end{subtable}
+\end{table}
 
-Left Hand Side:
-\[
-   \left[\sum_{m=0}^{\subsorange[0]}P(m)\right]=P(0)=1
-\]
-
-Right Hand Side:
+\subsection*{Base case $n=\subsorange[2]$}
 \begin{alignat*}{2}
-   P(\subsorange[0]+5)-2 \\
-   &=-2+P(5-2)         &&+\ P(5-3) \\
-   &=-2+P(3)           &&+\ P(2) \\
-   &=-2+P(3-1)+P(3-2)\ &&+\ P(2) \\
-   &=-2+P(2)+P(1)      &&+\ P(2) \\
-   &=-2+1+1+1 \\
-   &=1
-\end{alignat*}
-
-\textbf{QED} $n=\subsorange[0]$
-
-\pagebreak
-\subsection*{Base case $n=\subsorange[1]$}
-
-Left Hand Side:
-\[
-   \left[\sum_{m=0}^{\subsorange[1]}P(m)\right]=P(0)+P(1)=2
-\]
-
-Right Hand Side:
-\begin{alignat*}{2}
+   \sum_{m=0}^{\subsorange[1]}P(m) \\
+   &=P(0)+P(1) \\
+   &=2 \\
+   \\ \hline \\
    P(\subsorange[1]+5)-2 \\
-   &=-2+P(6) \\
-   &=-2+P(6-2) + P(6-3) \\
-   &=-2+P(4) + P(3) \\
+   &=P(6)-2 \\
+   &=4-2 \\
+   &=2
 \end{alignat*}
+Both sides are equivalent. \textbf{QED} $n=\subsorange[2]$; \textbf{QED} Base cases!
+
+\subsection*{Inductive hypothesis}
 
 \end{document}
