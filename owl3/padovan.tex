@@ -3,7 +3,7 @@
 \usepackage{amsfonts}
 \usepackage[fleqn]{amsmath}
 \usepackage{mathtools}
-\usepackage{xcolor}
+\usepackage[dvipsnames]{xcolor}
 \usepackage[left=35mm,top=26mm,right=26mm,bottom=15mm]{geometry}
 
 \usepackage{caption}
@@ -88,5 +88,43 @@ First, let us prove our three base cases: $n=0,1,2$
 Both sides are equivalent. \textbf{QED} $n=\subsorange[2]$; \textbf{QED} Base cases!
 
 \subsection*{Inductive hypothesis}
+
+Assume that the claim is true for $n$. It is sufficient to prove that the claim is true for $n+1$. In other words:\lf
+
+Given
+\[
+   \sum_{m=0}^{n} P(m) = P(n+5)-2
+\]
+
+Show
+\[
+   \sum_{m=0}^{n + 1} P(m) = P((n+1)+5)-2
+\]
+
+\begin{table}[h]
+   \begin{subtable}[t]{0.45\textwidth}
+      \begin{alignat*}{2}
+         &\left[\sum_{m=0}^{n+1} P(m)\right] \\
+         &=\textcolor{purple}{\left[\sum_{m=0}^{n} P(m)\right]}+P(n+1) \\
+         &=\textcolor{purple}{\left[\textcolor{blue}{P(n+5)}-2\right]\text{\tiny(by assumption)}}+P(n+1) \\
+         &=\textcolor{blue}{P(n+3)+P(n+2)}+P(n+1)-2
+      \end{alignat*}
+   \end{subtable}
+   \vline
+   \begin{subtable}[t]{0.45\textwidth}
+      \begin{alignat*}{2}
+         &\textcolor{ForestGreen}{P(n+6)}-2 \\
+         &=\textcolor{ForestGreen}{\left[\textcolor{violet}{P(n+4)}+P(n+3)\right]}-2 \\
+         &=\textcolor{violet}{P(n+2)+P(n+1)}+P(n+3)-2 \\
+         &=P(n+3)+P(n+2)+P(n+1)-2
+      \end{alignat*}
+   \end{subtable}
+\end{table}
+
+\[
+   P(n+3)+P(n+2)+P(n+1)-2 = P(n+3)+P(n+2)+P(n+1)-2
+\]
+
+$\displaystyle\sum_{m=0}^{n + 1} P(m)$ is symbolically equivalent to $P((n+1)+5)-2$. \textbf{QED Claim 1!}
 
 \end{document}
