@@ -1,0 +1,84 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\usepackage[left=35mm,top=26mm,right=26mm,bottom=15mm]{geometry}
+
+\def \nonneg {\mathbb{Z}_{\leq 0}}
+\def \lf {\newline}
+
+\def \subsorange [#1]{\mathbf{\textcolor{orange}{#1}}}
+\setlength{\parindent}{0pt}
+
+\title{Owl 3: Padovan Numbers}
+\author{Cole Gannon}
+\date{February 28th, 2023 \textcolor{red}{(late)}}
+
+\begin{document}
+\maketitle
+The Padovan numbers are defined by a function ${P(n \in \nonneg)}$\ where\lf
+
+$P(0)=P(1)=P(2)=1$\lf
+
+$\forall n \geq 3:P(n)=P(n-2)+P(n-3)$\lf
+
+To make this easier, let's just always assume that $n\in\nonneg$ so I don't have to repeat myself.
+Let's also work out the first few Padovan numbers for ease of simplification later.\lf
+
+
+\begin{tabular}{||c c||}
+   \hline n & P(n) \\ [0.5ex] \hline
+   \hline 0 & 1 \\
+   \hline 1 & 1 \\
+   \hline 2 & 1 \\
+   \hline 3 & 2 \\
+   \hline 4 & 2 \\
+   \hline 5 & 3 \\
+   \hline 6 & 4 \\
+   \hline
+  \end{tabular}
+
+\section*{Claim 1: $\displaystyle\sum_{m=0}^{n} P(m) = P(n+5)-2$}
+
+\subsection*{Proof by induction}
+
+First, let us prove our three base cases: $n=0,1,2$
+
+\subsubsection*{Base case $n=\subsorange[0]$}
+
+Left Hand Side:
+\[
+   \left[\sum_{m=0}^{\subsorange[0]}P(m)\right]=P(0)=1
+\]
+
+Right Hand Side:
+\begin{alignat*}{2}
+   P(\subsorange[0]+5)-2 \\
+   &=-2+P(5-2)         &&+\ P(5-3) \\
+   &=-2+P(3)           &&+\ P(2) \\
+   &=-2+P(3-1)+P(3-2)\ &&+\ P(2) \\
+   &=-2+P(2)+P(1)      &&+\ P(2) \\
+   &=-2+1+1+1 \\
+   &=1
+\end{alignat*}
+
+\textbf{QED} $n=\subsorange[0]$
+
+\pagebreak
+\subsection*{Base case $n=\subsorange[1]$}
+
+Left Hand Side:
+\[
+   \left[\sum_{m=0}^{\subsorange[1]}P(m)\right]=P(0)+P(1)=2
+\]
+
+Right Hand Side:
+\begin{alignat*}{2}
+   P(\subsorange[1]+5)-2 \\
+   &=-2+P(6) \\
+   &=-2+P(6-2) + P(6-3) \\
+   &=-2+P(4) + P(3) \\
+\end{alignat*}
+
+\end{document}
