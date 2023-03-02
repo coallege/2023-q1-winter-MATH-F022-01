@@ -16,8 +16,8 @@ executable the-bipartite-mind-exe
   main-is: the-bipartite-mind.hs
   other-modules:
       Paths_the_bipartite_mind
-  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  ghc-options: -O2 -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      TernaryTrees
-    , base >=4.7 && <5
+      base >=4.7 && <5
+    , containers
   default-language: Haskell2010

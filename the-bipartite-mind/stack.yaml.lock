@@ -3,14 +3,7 @@
 # For more information, please see the documentation at:
 #   https://docs.haskellstack.org/en/stable/lock_files
 
-packages:
-- completed:
-    hackage: TernaryTrees-0.2.0.2@sha256:45c18fdcf93bb162da28f88852976ac8f3c1fba1a4ba623e05032b048bfd2659,2353
-    pantry-tree:
-      size: 741
-      sha256: f011df17fa41ef9d8659ce56c425444631b83ca6b21c756d96df1610a48d3782
-  original:
-    hackage: TernaryTrees-0.2.0.2@sha256:45c18fdcf93bb162da28f88852976ac8f3c1fba1a4ba623e05032b048bfd2659,2353
+packages: []
 snapshots:
 - completed:
     size: 649133
