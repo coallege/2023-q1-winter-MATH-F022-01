@@ -1,0 +1,23 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           the-bipartite-mind
+version:        1.0.0.0
+author:         coalpha coalpha
+maintainer:     coalpha coalpha
+copyright:      2023 coalpha
+license:        BSD3
+build-type:     Simple
+
+executable the-bipartite-mind-exe
+  main-is: the-bipartite-mind.hs
+  other-modules:
+      Paths_the_bipartite_mind
+  ghc-options: -Wall -Wcompat -Widentities -Wincomplete-record-updates -Wincomplete-uni-patterns -Wmissing-export-lists -Wmissing-home-modules -Wpartial-fields -Wredundant-constraints -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      TernaryTrees
+    , base >=4.7 && <5
+  default-language: Haskell2010
