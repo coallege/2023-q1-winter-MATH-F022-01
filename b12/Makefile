@@ -12,15 +12,16 @@ cflags += -fno-stack-check
 cflags += -fno-stack-protector
 cflags += -mno-stack-arg-probe
 cflags += -lkernel32
+cflags += -Xlinker /align:16
 cflags += -Xlinker /entry:start
 cflags += -Xlinker /nodefaultlib
 cflags += -Xlinker /subsystem:console
 cflags += -Xlinker /libpath:"$(libpath)"
 
-run: bin/vitamin_b12.exe
+run: vitamin_b12.exe
 	$<
 
-bin/vitamin_b12.exe: vitamin_b12.c words.h
+vitamin_b12.exe: vitamin_b12.c words.h
 	@-mkdir bin
 	clang $< $(cflags) -o $@
 
