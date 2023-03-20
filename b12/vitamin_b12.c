@@ -12,7 +12,7 @@ unsigned char typedef byte;
 enum score typedef score;
 
 __attribute__((sysv_abi))
-score letter_score(char const answer[6], char const guess[6], size_t letter_idx) {
+score letter_score(char const answer[5], char const guess[5], size_t letter_idx) {
    char const guess_letter = guess[letter_idx];
 
    if (guess_letter == answer[letter_idx]) {
